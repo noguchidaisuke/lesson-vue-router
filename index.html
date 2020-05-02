@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <p>{{message}}</p>
+    <p>{{name}}</p>
+    <p>{{myData}}</p>
+  </div>
+
+  <div id="app2">
+    <p>こん、{{name}}</p>
+  </div>
+  <script>
+    var data = {
+      message: "おは",
+      name: "daisuke"
+    }
+    const vm = new Vue({
+      data: data,
+      computed: {
+        myData: function() {
+          return this.$data
+        }
+      }
+    })
+    vm.$mount('#app')
+
+    new Vue({
+      el: '#app2',
+      data: {
+        name: 'よしぴー'
+      }
+    })
+  </script>
+</body>
+</html>

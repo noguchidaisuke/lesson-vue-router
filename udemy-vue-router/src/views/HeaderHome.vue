@@ -1,0 +1,32 @@
+<template>
+  <nav>
+    <h2>Home</h2>
+    <router-link
+      to="/"
+      exact
+      active-class="link--active"
+      class="link">Home</router-link>
+    <router-link to="/users/1" active-class="link--active" exact class="link">Users</router-link>
+    <button @click="increment(2)">+1</button>
+    <button @click="decrement(2)">-1</button>
+  </nav>
+</template>
+
+<script>
+import { mapActions } from "vuex"
+export default {
+  methods: {
+    ...mapActions(["increment", "decrement"])
+  }
+}
+</script>
+
+<style scoped>
+  .link {
+    margin-right: 10px;
+  }
+
+  .link--active {
+    font-size: 20px;
+  }
+</style>
